@@ -1,0 +1,289 @@
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<style type="text/css">
+		* {margin: 0px;}
+		#canvas { background-color: grey; width: 100%; }
+		div {display: grid; grid-template-columns: 1fr; justify-content: center;align-content: center;}
+	</style>
+</head>
+<body>
+	<div>
+	<canvas id="canvas">
+		
+	</canvas>
+	</div>
+	<script type="text/javascript">
+		
+		
+		var canvas = document.getElementById('canvas');
+		
+		canvas.width = window.innerWidth ;
+		canvas.height = window.innerHeight;
+		var context = canvas.getContext('2d');
+
+		context.lineWidth = 15;
+		
+		var x= 0;
+		var y= 0;
+		var z= 0;
+
+		var color1 = getRandomColor();
+		var color2 = getRandomColor();
+		
+		
+		
+		draw(x,y,z);
+
+		window.addEventListener("devicemotion", handleMotionEvent, true);
+
+		function handleMotionEvent(event){
+			 x= 8*event.accelerationIncludingGravity.x;
+			 y= 8*event.accelerationIncludingGravity.y;
+			 z= 8*event.accelerationIncludingGravity.z;
+			 context.clearRect(0,0,window.width,window.height);
+			draw(x,y,z);		
+
+		}
+		
+
+
+
+		function draw(x,y,z)
+		{
+			
+		var flag = true;
+		for(var i=0; i<465; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width,0-i);
+		context.quadraticCurveTo(800-i-x-y-z, canvas.height/2-i-x-y-z, canvas.width, canvas.height+i-400);
+		context.stroke();
+		}
+
+		var flag = true;
+		for(var i=0; i<465; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(0, canvas.height/2+375-i);
+		context.quadraticCurveTo(canvas.width/2+i-x-y-z, 3*canvas.height/2-185-i-x-y-z, canvas.width/2-i, canvas.height);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<465; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(500-i, 0);
+		context.quadraticCurveTo(300+i-x-y-z, 300-i-x-y-z, 0-i, canvas.height/2+500-i);
+		context.stroke();
+		}
+	
+
+		
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width/2-390+i, 0);
+		context.quadraticCurveTo(canvas.width/2+i-x-y-z, 3*canvas.height/2-115-i-x-y-z, canvas.width+400-i, canvas.height/2-150-i);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width-100-i, 0);
+		context.quadraticCurveTo(canvas.width-i-x-y-z, canvas.height/2-i-x-y-z, canvas.width/2-350, canvas.height+500-i);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width+i, canvas.height+400-i);
+		context.quadraticCurveTo(canvas.width-i-x-y-z, canvas.height/2-i-x-y-z, canvas.width/2-500, canvas.height+500-i);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width/2-200+i, canvas.height);
+		context.quadraticCurveTo(canvas.width/2-200+i-x-y-z, 400-i-x-y-z, 0, canvas.height/2+30-i);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width/2+300-i, 0);
+		context.quadraticCurveTo(600-i-x-y-z, 600-i-x-y-z, 0, canvas.height/2-i);
+		context.stroke();
+		}
+
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(canvas.width/2+i, 0);
+		context.quadraticCurveTo(800+i-x-y-z, 500-i-x-y-z, canvas.width, canvas.height/2-i);
+		context.stroke();
+		}
+
+		var flag = true;
+		for(var i=0; i<345; i = i+15)
+		{
+		
+		if (flag) {
+			context.strokeStyle = ""+color1;
+			flag = false;
+		}
+		else
+		{
+			context.strokeStyle = ""+color2;
+			flag = true;
+		}
+		context.beginPath();
+		context.moveTo(0, 0+i);
+		context.quadraticCurveTo(-200+i-x-y-z, -200+i-x-y-z, 100+i, 0);
+		context.stroke();
+		}
+		window.requestAnimationFrame(draw);
+
+
+	}
+
+
+	function getRandomColor() {
+	  	var r = Math.floor(Math.random() * 256);
+	  	var g = Math.floor(Math.random() * 256);
+	  	var b = Math.floor(Math.random() * 256);
+	 
+	 
+		var hexR = r.toString(16);
+		var hexG = g.toString(16);
+	    var hexB = b.toString(16);
+		
+		  if (hexR.length == 1) {
+		    hexR = "0" + hexR;
+		  }
+		 
+		  if (hexG.length == 1) {
+		    hexG = "0" + hexG;
+		  }
+		 
+		  if (hexB.length == 1) {
+		    hexB = "0" + hexB;
+		  }
+		 
+		
+		  var hexColor = "#" + hexR + hexG + hexB;
+		   
+		  return hexColor.toUpperCase();
+}
+
+	</script>
+</body>
+</html>
